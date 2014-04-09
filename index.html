@@ -58,13 +58,13 @@
     		euro=(a+b+c+d+e+f)*1000;
     		euro=Math.floor(euro*100)/100
 
-    		if (calcolosokal < 0.8){$("#rissokal3").val(calcolosokal+" LOW :::: 78%(CCyR 12 m.)  ::::  90.8%(EFS 6 y)  ::::  94%(OS 6 y)");$("#rissokal").val(calcolosokal+" LOW :::: 78%(CCyR 12 m.)  ::::  90.8%(EFS 6 y)  ::::  94%(OS 6 y)");}
-    		else if (calcolosokal >= 0.8 && calcolosokal <= 1.2){$("#rissokal3").val(calcolosokal+" INTERMEDIATE :::: 68%(CCyR 12 m.)  ::::  81.3%(EFS 6 y)  ::::  87%(OS 6 y)");$("#rissokal").val(calcolosokal+" INTERMEDIATE ::::  68%(CCyR 12 m.)  ::::  81.3%(EFS 6 y)  ::::  87%(OS 6 y)");}
-    		else if (calcolosokal > 1.2){$("#rissokal").val(calcolosokal+" high 51%(CCyR 12 m.)  ::::  67.3%(EFS 6 y)  ::::  76%(OS 6 y)");$("#rissokal3").val(calcolosokal+" HIGH 51%(CCyR 12 m.) :::: 67.3%(EFS 6 y) :::: 76%(OS 6 y)");}
+    		if (calcolosokal < 0.8){$("#rissokal3").val(calcolosokal+" LOW • 78%(CCyR 12 m.)  •  90.8%(EFS 6 y)  •  94%(OS 6 y)");$("#rissokal").val(calcolosokal+" LOW • 78%(CCyR 12 m.)  •  90.8%(EFS 6 y)  •  94%(OS 6 y)");}
+    		else if (calcolosokal >= 0.8 && calcolosokal <= 1.2){$("#rissokal3").val(calcolosokal+" INTERMEDIATE • 68%(CCyR 12 m.)  •  81.3%(EFS 6 y)  •  87%(OS 6 y)");$("#rissokal").val(calcolosokal+" INTERMEDIATE •  68%(CCyR 12 m.)  •  81.3%(EFS 6 y)  •  87%(OS 6 y)");}
+    		else if (calcolosokal > 1.2){$("#rissokal").val(calcolosokal+" HIGH 51%(CCyR 12 m.)  •  67.3%(EFS 6 y)  •  76%(OS 6 y)");$("#rissokal3").val(calcolosokal+" HIGH 51%(CCyR 12 m.) • 67.3%(EFS 6 y) • 76%(OS 6 y)");}
             
-    		if (euro < 781){$("#riseuro").val(euro+" LOW :::: 78%(CCyR 12 m.) :::: 90.8%(EFS 6 y)  ::::  94%(OS 6 y)");$("#riseuro3").val(euro+" LOW :::: 78%(CCyR 12 m.)  ::::  90.8%(EFS 6 y)  ::::  94%(OS 6 y)");}
-    		else if (euro >= 781 && euro <= 1480){$("#riseuro").val(euro+" INTERMEDIATE :::: 68%(CCyR 12 m.)  ::::  81.3%(EFS 6 y)  ::::  87%(OS 6 y)");$("#riseuro3").val(euro+" INTERMEDIATE ::::  68%(CCyR 12 m.)  ::::  81.3%(EFS 6 y)  ::::  87%(OS 6 y)");}
-    		else if (euro > 1480){$("#riseuro").val(euro+" INTERMEDIATE :::: 68%(CCyR 12 m.) ::::  81.3%(EFS 6 y)  ::::  87%(OS 6 y)");$("#riseuro3").val(euro+" INTERMEDIATE :::: 51%(CCyR 12 m.)  ::::  67.3%(EFS 6 y)  ::::  76%(OS 6 y)");}
+    		if (euro < 781){$("#riseuro").val(euro+" LOW • 86%(CCyR 18 m.)");$("#riseuro3").val(euro+" LOW • 86%(CCyR 18 m.)");}
+    		else if (euro >= 781 && euro <= 1480){$("#riseuro").val(euro+" INTERMEDIATE • 86%(CCyR 18 m.)");$("#riseuro3").val(euro+" INTERMEDIATE •  86%(CCyR 18 m.)");}
+    		else if (euro >= 1480){$("#riseuro").val(euro+" ALTO • 65.8%(CCyR 18 m.)");$("#riseuro3").val(euro+" ALTO • 65.8%(CCyR 18 m.)");}
     	}
     </script>
     <script>
