@@ -607,6 +607,20 @@ background-repeat: no-repeat;
 background-color: #EEE;
 background-size: cover;
 }
+
+.ui_info { background-image: url("../img/info.svg");}
+.ui_sokal { background-image: url("../img/sokal.svg");}
+.ui_eutos { background-image: url("../img/eutos.svg");}
+.ui_resultado { background-image: url("../img/mail.svg");}
+
+.ui_info, .ui_sokal, .ui_eutos, .ui_resultado {
+background-repeat: no-repeat;
+width: 29px;
+height: 29px;
+margin-left: auto;
+margin-right: auto;
+
+}
 	
 .inicio {
 	position: absolute;

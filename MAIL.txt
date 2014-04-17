@@ -1,0 +1,21 @@
+Los resultados que se dan a continuación reflejan las respuestas a terapia con Imatinib en primera línea, deacuerdo a varios estudios entre ellos el IRIS
+
+Sokal RR: 1.69 HIGH 
+51%(CCyR 12 m.) • 67.3%(EFS 6 y) • 76%(OS 6 y) 
+
+Hasford RR: 1436.5 INTERMEDIATE  
+86%(CCyR 18 m.) 
+
+
+EUTOS Risk group: LOW
+EUTOS Probability for no CCgr at 18 months: 0.21 
+EUTOS Score: 83 
+
+CCyR (Respuesta Citogenética Completa)
+EFS (Supervivencia Libre de Evento)
+OS (Supervivencia Global)
+y (Años)
+m (Meses)
+
+
+/////////////////
