@@ -628,5 +628,10 @@ margin: 0px;
 padding: 0px;
 right: 79px;
 top: 4px;
+background-color: rgb(117, 112, 112);
+width: 51px;
+height: 50px;
+border-radius: 0px 0px 15px 15px;
+text-align: center;
 	}
-	}
+
