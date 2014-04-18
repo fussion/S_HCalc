@@ -59,10 +59,10 @@
     <access origin="http://cdc.gatolocostudios.com/*" />
     <access origin="http://cdc.gatolocostudios.com/Calculadora/*" />
     <access origin="http://www.ncbi.nlm.nih.gov/pubmed/6584184/*" />
-<access origin="http://www.ncbi.nlm.nih.gov/pubmed/?term=Jntl+cancer+inst+1998+90+850/*" />
-<access origin="http://www.ncbi.nlm.nih.gov/pubmed/?term=Predicting+complete+cytogenetic+response+and+subsequent+progression-free+survival+in+2060+patients+with+CML+on+imatinib+treatment%3A+the+EUTOS+sco/*" />
-<access origin="http://www.ncbi.nlm.nih.gov/pubmed/23803709/*" />
-<access origin="http://www.ncbi.nlm.nih.gov/pubmed/19282833/*" />
-<access origin="http://www.nejm.org/doi/full/10.1056/nejmoa022457/*" />
-<access origin="http://jco.ascopubs.org/content/27/35/6041.short/*" />
+    <access origin="http://www.ncbi.nlm.nih.gov/pubmed/?term=Jntl+cancer+inst+1998+90+850/*" />
+    <access origin="http://www.ncbi.nlm.nih.gov/pubmed/?term=Predicting+complete+cytogenetic+response+and+subsequent+progression-free+survival+in+2060+patients+with+CML+on+imatinib+treatment%3A+the+EUTOS+sco/*" />
+    <access origin="http://www.ncbi.nlm.nih.gov/pubmed/23803709/*" />
+    <access origin="http://www.ncbi.nlm.nih.gov/pubmed/19282833/*" />
+    <access origin="http://www.nejm.org/doi/full/10.1056/nejmoa022457/*" />
+    <access origin="http://jco.ascopubs.org/content/27/35/6041.short/*" />
 </widget>
