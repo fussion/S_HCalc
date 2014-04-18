@@ -8,6 +8,43 @@
    <link rel="stylesheet" type="text/css" href="css/jquery.mobile.theme-1.4.2.css"/>-
     <script type="text/javascript" src="js/jquery.js"></script>
     <script type="text/javascript" src="js/jquery.mobile-1.4.2.js"></script>
+    <script type="text/javascript" charset="utf-8" src="cordova.js"></script>
+    
+      <script type="text/javascript" charset="utf-8">
+
+    // Wait for Cordova to load
+    //
+    document.addEventListener("deviceready", onDeviceReady, false);
+
+    // Global InAppBrowser reference
+    var iabRef = null;
+
+    function iabLoadStart(event) {
+        alert(event.type + ' - ' + event.url);
+    }
+
+    function iabLoadStop(event) {
+        alert(event.type + ' - ' + event.url);
+    }
+
+    function iabClose(event) {
+         alert(event.type);
+         iabRef.removeEventListener('loadstart', iabLoadStart);
+         iabRef.removeEventListener('loadstop', iabLoadStop);
+         iabRef.removeEventListener('exit', iabClose);
+    }
+
+    // Cordova is ready
+    //
+    function onDeviceReady() {
+         alert('Device is ready!');
+         //iabRef = window.open('http://apache.org', '_blank', 'location=yes');
+         //iabRef.addEventListener('loadstart', iabLoadStart);
+         //iabRef.addEventListener('loadstop', iabLoadStop);
+         //iabRef.addEventListener('exit', iabClose);
+    }
+
+    </script>
     
   
 <!--<link href="ios_inspired/styles.css" rel="stylesheet" />-->
@@ -748,7 +785,10 @@ TKIs have priority. In patients who progress to AP or BP during TKI therapy, the
 <div data-role="collapsible" data-collapsed-icon="arrow-r" data-expanded-icon="arrow-d".>
                     <h4> Referencias</h4>       
         <h2></h2>
-        <a href="#" onclick="window.plugins.childBrowser.showWebPage('http://www.nhl.com');">_system2</a>
+        <a href="#" onclick="window.open('http://www.wikipedia.org','_self','location=yes')">Wikipedia (webview)</a><br /><br />
+  <a href="#" onclick="window.open('http://www.wikipedia.org','_blank','location=yes')">Wikipedia (inAppBrowser)</a><br /><br />
+  <a href="#" onclick="window.open('http://www.wikipedia.org','_system','location=yes')">Wikipedia (mobile browser)</a><br /><br />
+        
         <h3>Sokal </h3>
         <h5 style="font-size:0.875em"><a href="http://www.ncbi.nlm.nih.gov/pubmed/6584184" target="_top">http://www.ncbi.nlm.nih.gov</a></h5>
         
