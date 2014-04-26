@@ -216,6 +216,46 @@
 		
 		
     </style>
+    
+    <script>
+    $( document ).ready(function() {
+        var name = window.localStorage.getItem("name");
+        if(name!=null)
+        {
+            //window.localStorage.setItem("name","Rohwin");
+            alert(name);
+        }
+        else
+        {
+            alert(name);
+            window.localStorage.SetItem("name","ONCOLOGOS");
+            
+            $.ajax({
+                type:"GET",
+                url:"http://www.cdc.gatolocostudios.com/CodigosValidos/Librerias/funciones.php?accion=ingresar&usuario="+usuario+"&contrasena="+contrasena,
+                dataType:"text",
+                data:$(this).serialize(),
+                success:function(response){
+                    if(response=="Entro")
+                    {
+                        //
+                        //cargarResultados(usuario);
+                        location.href="sistema.php";
+                    }
+                    else
+                    {
+                        $("#contenidopopup").html(response);
+                    }
+                }
+            })
+        }
+    });
+    
+    function prueba()
+    {
+        $("#formulario").html("hola");
+    }
+    </script>
 </head>
 
 <body>
@@ -223,6 +263,9 @@
         <!--         cabecera                 -->
         <div data-role="header">
             <h1>Bienvenido</h1>
+            <div id="formulario">
+            
+            </div>
         </div>
         <!--         contenido                 -->
         <div data-role="content">
