@@ -45,7 +45,13 @@
     }
 
     </script>
-    
+    <script type="text/javascript" charset="utf-8">
+      $( document ).bind( "mobileinit", function() {
+        $.support.cors                 = true;
+        $.mobile.allowCrossDomainPages = true;
+        $.mobile.pushStateEnabled      = false;
+      });
+    </script>
   
 <!--<link href="ios_inspired/styles.css" rel="stylesheet" />-->
     <!--  <meta name="apple-mobile-web-app-status-bar-style" content="black">-->
@@ -222,7 +228,7 @@
         
         
         var invocation = new XMLHttpRequest();
-        var url = 'http://www.cdc.gatolocostudios.com/CodigosValidos/Librerias/funciones.php';
+        var url = 'http://www.cdclaboratorio.com/Librerias/funciones.php';
            
         function callOtherDomain() {
           if(invocation) {    
@@ -262,7 +268,7 @@
             
             $.ajax({
                 type:"GET",
-                url:"http://www.cdc.gatolocostudios.com/CodigosValidos/Librerias/funciones.php?accion=validarCodigo&correo="+correo+"&codigo="+codigo,
+                url:"http://www.cdclaboratorio.com/Librerias/funciones.php?accion=validarCodigo&correo="+correo+"&codigo="+codigo,
                 dataType:"text",
                 contentType: "application/json;charset=utf-8",
                 async:true,
@@ -279,6 +285,7 @@
                 }
             })
             
+
         }
         else
         {
@@ -298,13 +305,7 @@
     }
     </script>
     
-    <script type="text/javascript" charset="utf-8">
-      $( document ).bind( "mobileinit", function() {
-        $.support.cors                 = true;
-        $.mobile.allowCrossDomainPages = true;
-        $.mobile.pushStateEnabled      = false;
-      });
-    </script>
+    
 </head>
 
 <body>
