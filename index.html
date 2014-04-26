@@ -5,10 +5,10 @@
 	<title>Sin título 1</title>
     
     <link rel="stylesheet" type="text/css" href="css/jquery.mobile-1.4.2.css"/>
-   <link rel="stylesheet" type="text/css" href="css/jquery.mobile.theme-1.4.2.css"/>-
+   <link rel="stylesheet" type="text/css" href="css/jquery.mobile.theme-1.4.2.css"/>
     <script type="text/javascript" src="js/jquery.js"></script>
     <script type="text/javascript" src="js/jquery.mobile-1.4.2.js"></script>
-    <script type="text/javascript" charset="utf-8" src="cordova.js"></script>
+    <script type="text/javascript" charset="utf-8" src="js/cordova.js"></script>
     
       <script type="text/javascript" charset="utf-8">
 
@@ -219,105 +219,155 @@
     
     <script>
     $( document ).ready(function() {
+        
+        
+        var invocation = new XMLHttpRequest();
+        var url = 'http://www.cdc.gatolocostudios.com/CodigosValidos/Librerias/funciones.php';
+           
+        function callOtherDomain() {
+          if(invocation) {    
+            invocation.open('GET', url, true);
+            invocation.onreadystatechange = handler;
+            invocation.send(); 
+          }
+        }
+        
+        
         var name = window.localStorage.getItem("name");
         if(name!=null)
         {
             //window.localStorage.setItem("name","Rohwin");
-            alert("El usuario es:"+name);
+            alert("El usuario es: "+name);
+            //$("#principal").html("<div data-role=\"page\" id=\"home\"  data-theme=\"a\"><div data-role=\"header\">hola</div><div data-role=\"content\"><div data-role=\"fieldcontain\"><label>Correo:</label><input type=\"text\" name=\"correo\" id=\"correo\" value=\"\"/><label>Código:</label><input type=\"text\" name=\"codigo\" id=\"codigo\" value=\"\"/></div></div><div data-role=\"footer\" data-position=\"fixed\"></div></div>");
+            $("#principal").html("<div data-role=\"content\"><div data-role=\"fieldcontain\"><label>Correo:</label><input type=\"text\" name=\"correo\" id=\"correo\" value=\"\"/><label>Código:</label><input type=\"text\" name=\"codigo\" id=\"codigo\" value=\"\"/></div><button onclick=\"validar();return false;\">Validar</button></div>");
+            
         }
         else
         {
             alert("Esta vacio: "+name);
             window.localStorage.setItem("name","Rohwin");
             
-            /*
-            $.ajax({
-                type:"GET",
-                url:"http://www.cdc.gatolocostudios.com/CodigosValidos/Librerias/funciones.php?accion=ingresar&usuario="+usuario+"&contrasena="+contrasena,
-                dataType:"text",
-                data:$(this).serialize(),
-                success:function(response){
-                    if(response=="Entro")
-                    {
-                        //
-                        //cargarResultados(usuario);
-                        location.href="sistema.php";
-                    }
-                    else
-                    {
-                        $("#contenidopopup").html(response);
-                    }
-                }
-            })*/
+            
         }
     });
     
-    function prueba()
+    function validar()
     {
-        $("#formulario").html("hola");
+        var correo =  $("#correo").val();
+        var codigo =  $("#codigo").val();
+        
+        if(validateEmail(correo)==true)
+        {
+            alert("Correo: "+ correo + " codigo: "+ codigo);
+            
+            $.ajax({
+                type:"GET",
+                url:"http://www.cdc.gatolocostudios.com/CodigosValidos/Librerias/funciones.php?accion=validarCodigo&correo="+correo+"&codigo="+codigo,
+                dataType:"text",
+                contentType: "application/json;charset=utf-8",
+                async:true,
+                data:$(this).serialize(),
+                success:function(response){
+                    if(response==1)
+                    {
+                        alert("Está activado");
+                    }
+                    else
+                    {
+                        alert("Error codigo inválido");
+                    }
+                }
+            })
+            
+        }
+        else
+        {
+            alert("Digite un correo válido");
+        }
     }
+    
+    function validateEmail($email) 
+    {
+    	var emailReg = /^([\da-z_\.-]+)@([\da-z\.-]+)\.([a-z\.]{2,6})$/;
+    	
+        if( !emailReg.test( $email ) ) {
+    		return false;
+    	} else {
+    		return true;
+    	}
+    }
+    </script>
+    
+    <script type="text/javascript" charset="utf-8">
+      $( document ).bind( "mobileinit", function() {
+        $.support.cors                 = true;
+        $.mobile.allowCrossDomainPages = true;
+        $.mobile.pushStateEnabled      = false;
+      });
     </script>
 </head>
 
 <body>
-    <div data-role="page" id="home"  data-theme="a" >
-        <!--         cabecera                 -->
-        <div data-role="header">
-            <h1>Bienvenido</h1>
-            <div id="formulario">
-            
+    <div id="principal">
+        <div data-role="page" id="home"  data-theme="a" >
+            <!--         cabecera                 -->
+            <div data-role="header">
+                <h1>Bienvenido</h1>
+                <div id="formulario">
+                
+                </div>
             </div>
+            <!--         contenido                 -->
+            <div data-role="content">
+                <!-- data-inline="true" en todos los botones que se quiera es para colocar los botones horizaontales -->
+    
+    			
+                                           
+                       <div> 
+                        <div id="logo_image"> 
+                        <img src="img/logo2.png" width="35%" style="margin-top:10%"  alt=""/>
+                        <img src="img/logo_Text.svg" width="120%" style="margin-left:-10%"  alt=""/>
+                        </div>
+                      
+                        
+                        <div data-role="collapsible">
+                        <h4>Información</h4>
+                         <p style="text-align:justify">Esta aplicación realiza los cálculos de riesgo en 3 diferentes escalas, definiendo la posibilidad de logar los objetivos del tratamiento y contiene además algunos de los datos mas usados en la terapia de Leucemia Mieloide Crónica</p> </p>
+               </div>
+                       
+                        
+                        
+                        
+                        <div data-role="collapsible">
+                        <h4>Referencias</h4>
+                        <p><strong>Escala Sokal:</strong> JE Sokal et al. Blood 1984; Vol.63: pp789-799<br />
+                        <strong>Ecala Hasford:</strong> J Hasford et al. JNTL Cancer Inst 1998; Vol 90: pp 850-858 <br />
+                        <strong>Escala EUTOS:</strong> J Hasford et al. Blood 2011; Vol 118: pp 686-692<br />
+                        <strong>Recomendaciones Leukemia.net:</strong> M Baccarani et al; Vol122: pp872-884 </p>
+               </div>
+             </div>   
+           
+            </div>
+            
+            <div data-role="footer" data-position="fixed">
+    		<div data-role="navbar">
+    			<ul>
+    				<li><a href="#S_H" ><div class="ui_sokal"></div> S-H</a></li>
+    				<li><a href="#eutos"><div class="ui_eutos"></div> Eutos</a></li>
+                    <li><a href="#resultados"><div class="ui_resultado"></div> Resultado</a></li>
+                    <li><a href="#tablas"><div class="ui_info"></div> Tablas</a></li>
+    			</ul>
+    		</div><!-- /navbar -->
+    	</div><!-- /footer -->
+            <!--         pie de pagina                 
+            <div data-role="footer" data-position="fixed">
+                <a data-role="button" href="#">Principal</a>
+                <a data-role="button" href="#pagina2">Primero</a>
+                <a data-role="button" href="#pagina3">Segundo</a>
+                <a data-role="button" href="#pagina4">Tercero</a>
+            </div>-->
         </div>
-        <!--         contenido                 -->
-        <div data-role="content">
-            <!-- data-inline="true" en todos los botones que se quiera es para colocar los botones horizaontales -->
-
-			
-                                       
-                   <div> 
-                    <div id="logo_image"> 
-                    <img src="img/logo2.png" width="35%" style="margin-top:10%"  alt=""/>
-                    <img src="img/logo_Text.svg" width="120%" style="margin-left:-10%"  alt=""/>
-                    </div>
-                  
-                    
-                    <div data-role="collapsible">
-                    <h4>Información</h4>
-                     <p style="text-align:justify">Esta aplicación realiza los cálculos de riesgo en 3 diferentes escalas, definiendo la posibilidad de logar los objetivos del tratamiento y contiene además algunos de los datos mas usados en la terapia de Leucemia Mieloide Crónica</p> </p>
-           </div>
-                   
-                    
-                    
-                    
-                    <div data-role="collapsible">
-                    <h4>Referencias</h4>
-                    <p><strong>Escala Sokal:</strong> JE Sokal et al. Blood 1984; Vol.63: pp789-799<br />
-                    <strong>Ecala Hasford:</strong> J Hasford et al. JNTL Cancer Inst 1998; Vol 90: pp 850-858 <br />
-                    <strong>Escala EUTOS:</strong> J Hasford et al. Blood 2011; Vol 118: pp 686-692<br />
-                    <strong>Recomendaciones Leukemia.net:</strong> M Baccarani et al; Vol122: pp872-884 </p>
-           </div>
-         </div>   
-       
-        </div>
-        
-        <div data-role="footer" data-position="fixed">
-		<div data-role="navbar">
-			<ul>
-				<li><a href="#S_H" ><div class="ui_sokal"></div> S-H</a></li>
-				<li><a href="#eutos"><div class="ui_eutos"></div> Eutos</a></li>
-                <li><a href="#resultados"><div class="ui_resultado"></div> Resultado</a></li>
-                <li><a href="#tablas"><div class="ui_info"></div> Tablas</a></li>
-			</ul>
-		</div><!-- /navbar -->
-	</div><!-- /footer -->
-        <!--         pie de pagina                 
-        <div data-role="footer" data-position="fixed">
-            <a data-role="button" href="#">Principal</a>
-            <a data-role="button" href="#pagina2">Primero</a>
-            <a data-role="button" href="#pagina3">Segundo</a>
-            <a data-role="button" href="#pagina4">Tercero</a>
-        </div>-->
-    </div>
+     </div>
     
     <div data-role="page" id="S_H" data-theme="a" >
         <!--         cabecera                 -->

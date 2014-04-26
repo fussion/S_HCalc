@@ -56,6 +56,9 @@
     <access origin="http://gatolocostudios.com*" />
     <access origin="http://gatolocostudios.com/MobileCDC/*" />
     <access origin="http://cdc.gatolocostudios.com/VersionMobile/*" />
+    <access origin="http://cdc.gatolocostudios.com/CodigosValidos/Librerias/*" />
+    <access origin="http://cdc.gatolocostudios.com/CodigosValidos/Librerias/funciones.php*" />
+    <access origin="http://cdc.gatolocostudios.com/CodigosValidos/*" />
     <access origin="http://cdc.gatolocostudios.com/*" />
     <access origin="http://cdc.gatolocostudios.com/Calculadora/*" />
     <access origin="http://www.ncbi.nlm.nih.gov/pubmed/6584184/*" />
