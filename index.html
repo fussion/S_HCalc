@@ -243,20 +243,21 @@
         if(name!=null)
         {
             //window.localStorage.setItem("name","Rohwin");
-            alert("El usuario es: "+name);
+            //alert("El usuario es: "+name);
             //$("#principal").html("<div data-role=\"page\" id=\"home\"  data-theme=\"a\"><div data-role=\"header\">hola</div><div data-role=\"content\"><div data-role=\"fieldcontain\"><label>Correo:</label><input type=\"text\" name=\"correo\" id=\"correo\" value=\"\"/><label>Código:</label><input type=\"text\" name=\"codigo\" id=\"codigo\" value=\"\"/></div></div><div data-role=\"footer\" data-position=\"fixed\"></div></div>");
-            $("#principal").html("<div data-role=\"content\"><div data-role=\"fieldcontain\"><label>Correo:</label><input type=\"text\" name=\"correo\" id=\"correo\" value=\"\"/><label>Código:</label><input type=\"text\" name=\"codigo\" id=\"codigo\" value=\"\"/></div><button onclick=\"validar();return false;\">Validar</button></div>");
+            
             
         }
         else
         {
-            alert("Esta vacio: "+name);
-            window.localStorage.setItem("name","Rohwin");
-            
-            
+            //alert("Esta vacio: "+name);
+
+            $("#principal").html("<div data-role=\"content\"><div data-role=\"fieldcontain\"><label>Correo:</label><input type=\"text\" name=\"correo\" id=\"correo\" value=\"\"/><label>Código:</label><input type=\"text\" name=\"codigo\" id=\"codigo\" value=\"\"/></div><button onclick=\"validar();return false;\">Validar</button></div>");
+                       
         }
     });
     
+    //Esta es la que se cambia
     function validar()
     {
         var correo =  $("#correo").val();
@@ -264,7 +265,7 @@
         
         if(validateEmail(correo)==true)
         {
-            alert("Correo: "+ correo + " codigo: "+ codigo);
+            //alert("Correo: "+ correo + " codigo: "+ codigo);
             
             $.ajax({
                 type:"GET",
@@ -274,9 +275,11 @@
                 async:true,
                 data:$(this).serialize(),
                 success:function(response){
+                    //alert(response);
                     if(response==1)
                     {
-                        alert("Está activado");
+                        window.localStorage.setItem("name","activado");
+                        alert("Reinicie la aplicación");
                     }
                     else
                     {
