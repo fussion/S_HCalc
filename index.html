@@ -275,8 +275,8 @@
                 async:true,
                 data:$(this).serialize(),
                 success:function(response){
-                    //alert(response);
-                    if(response==1)
+                    alert(response);
+                    if(response=="1")
                     {
                         window.localStorage.setItem("name","activado");
                         alert("Reinicie la aplicación");
