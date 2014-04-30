@@ -5,10 +5,10 @@
 	<title>Sin título 1</title>
     
     <link rel="stylesheet" type="text/css" href="css/jquery.mobile-1.4.2.css"/>
-   <link rel="stylesheet" type="text/css" href="css/jquery.mobile.theme-1.4.2.css"/>
+   <link rel="stylesheet" type="text/css" href="css/jquery.mobile.theme-1.4.2.css"/>-
     <script type="text/javascript" src="js/jquery.js"></script>
     <script type="text/javascript" src="js/jquery.mobile-1.4.2.js"></script>
-    <script type="text/javascript" charset="utf-8" src="js/cordova.js"></script>
+    <script type="text/javascript" charset="utf-8" src="cordova.js"></script>
     
       <script type="text/javascript" charset="utf-8">
 
@@ -38,20 +38,14 @@
     //
     function onDeviceReady() {
          //alert('Device is ready!');
-         iabRef = window.open('http://apache.org', '_blank', 'location=yes');
-         iabRef.addEventListener('loadstart', iabLoadStart);
-         iabRef.addEventListener('loadstop', iabLoadStop);
-         iabRef.addEventListener('exit', iabClose);
+         //iabRef = window.open('http://apache.org', '_blank', 'location=yes');
+         //iabRef.addEventListener('loadstart', iabLoadStart);
+         //iabRef.addEventListener('loadstop', iabLoadStop);
+         //iabRef.addEventListener('exit', iabClose);
     }
 
     </script>
-    <script type="text/javascript" charset="utf-8">
-      $( document ).bind( "mobileinit", function() {
-        $.support.cors                 = true;
-        $.mobile.allowCrossDomainPages = true;
-        $.mobile.pushStateEnabled      = false;
-      });
-    </script>
+    
   
 <!--<link href="ios_inspired/styles.css" rel="stylesheet" />-->
     <!--  <meta name="apple-mobile-web-app-status-bar-style" content="black">-->
@@ -222,204 +216,64 @@
 		
 		
     </style>
-    
-    <script>
-    $( document ).ready(function() {
-        
-        
-        var invocation = new XMLHttpRequest();
-        var url = 'http://www.cdclaboratorio.com/Librerias/funciones.php';
-           
-        function callOtherDomain() {
-          if(invocation) {    
-            invocation.open('GET', url, true);
-            invocation.onreadystatechange = handler;
-            invocation.send(); 
-          }
-        }
-        
-        
-        var name = window.localStorage.getItem("name");
-        if(name!=null)
-        {
-            //window.localStorage.setItem("name","Rohwin");
-            //alert("El usuario es: "+name);
-            //$("#principal").html("<div data-role=\"page\" id=\"home\"  data-theme=\"a\"><div data-role=\"header\">hola</div><div data-role=\"content\"><div data-role=\"fieldcontain\"><label>Correo:</label><input type=\"text\" name=\"correo\" id=\"correo\" value=\"\"/><label>Código:</label><input type=\"text\" name=\"codigo\" id=\"codigo\" value=\"\"/></div></div><div data-role=\"footer\" data-position=\"fixed\"></div></div>");
-            
-            
-        }
-        else
-        {
-            //alert("Esta vacio: "+name);
-
-            $("#principal").html("<div data-role=\"content\"><div id=\"padre\"><div id=\"hijo\"><img src=\"img/logo2.png\" width=\"242\" height=\"274\" alt=\"\"/><p>Thank you for purchasing CML | CAL, you are one step away from enjoying the app. <br><br>Enter e-mail and password to proceed with the activation.</p><form id=\"validador\"><label for=\"email\">Email:</label><input type=\"email\" name=\"correo\" id=\"correo\"><br><label for=\"password\">Password:</label><input type=\"password\" name=\"codigo\" id=\"codigo\"><br/><br/><button onclick=\"validar();return false;\">Send</button></form></div></div></div>");
-        }
-    });
-    
-    //Esta es la que se cambia
-    function validar()
-    {
-        var correo =  $("#correo").val();
-        var codigo =  $("#codigo").val();
-        
-        if(validateEmail(correo)==true)
-        {
-            //alert("Correo: "+ correo + " codigo: "+ codigo);
-            
-            $.ajax({
-                type:"GET",
-                url:"http://www.cdclaboratorio.com/Librerias/funciones.php?accion=validarCodigo&correo="+correo+"&codigo="+codigo,
-                dataType:"text",
-                contentType: "application/json;charset=utf-8",
-                async:true,
-                data:$(this).serialize(),
-                success:function(response){
-                    //alert(response);
-                    if(response=="1")
-                    {
-                        window.localStorage.setItem("name","activado");                        
-                        alert("Please, reboot your app");
-                    }
-                    else
-                    {
-                        alert("Error Code");
-                    }
-                }
-            })
-            
-
-        }
-        else
-        {
-            alert("Digite un correo válido");
-        }
-    }
-    
-    function validateEmail($email) 
-    {
-    	var emailReg = /^([\da-z_\.-]+)@([\da-z\.-]+)\.([a-z\.]{2,6})$/;
-    	
-        if( !emailReg.test( $email ) ) {
-    		return false;
-    	} else {
-    		return true;
-    	}
-    }
-    
-    function cerrar()
-    {
-        navigator.app.exitApp();
-    }
-    </script>
-    
-    <style type="text/css">
-        body {
-        /*background-attachment: fixed;
-        background-repeat: no-repeat;
-        /*background-color: #FFDEAD;
-        text-align: center*/
-        } 
-        
-        #validador, p{
-            width: 400px;
-           font-family:Gotham, "Helvetica Neue", Helvetica, Arial, sans-serif;
-        	text-align: -moz-center;
-        	font-size:16px;
-            text-shadow: none;
-            color: white;
-        }
-        
-        p {
-        	text-align:center;
-
-        	}
-        
-        
-        #validador label {
-            display: inline-block;
-            width: 150px;
-        	padding: 5px;
-        }
-        
-        #validador input {
-            display: inline-block;
-            width: 200px;
-           
-        }
-        
-        #padre {
-        /*background-color: red;*/
-        width: 400px;
-        height:auto;
-        margin: 4px auto ;
-        text-align: center;
-        } 
-    </style>
 </head>
 
 <body>
-    
-        <div data-role="page" id="home"  data-theme="a" >
-            <div id="principal">
-            <!--         cabecera                 -->
-
-            <div data-role="header">
-                <h1>Welcome</h1>
-                <div id="formulario">
-                
-                </div>
-            </div>
-            <!--         contenido                 -->
-            <div data-role="content">
-                <!-- data-inline="true" en todos los botones que se quiera es para colocar los botones horizaontales -->
-    
-    			
-                                           
-                       <div> 
-                        <div id="logo_image"> 
-                        <img src="img/logo2.png" width="35%" style="margin-top:10%"  alt=""/>
-                        <img src="img/logo_Text.svg" width="120%" style="margin-left:-10%"  alt=""/>
-                        </div>
-                      
-                        
-                        <div data-role="collapsible">
-                        <h4>Information</h4>
-                         <p style="text-align:justify">This application Realiza los Cálculos de Riesgo en 3 Diferentes Escalas párr Leucemia mieloide Crónica (LMC), definiendo la Posibilidad de lograr los Objetivos del Tratamiento of this disease, contains ADEMÁS los Datos Relevantes mas en la terapia de LMC.</p> </p>
-               </div>
-                       
-                        
-                        
-                        
-                        <div data-role="collapsible">
-                        <h4>References</h4>
-                        <p><strong>Escala Sokal:</strong> JE Sokal et al. Blood 1984; Vol.63: pp789-799<br />
-                        <strong>Ecala Hasford:</strong> J Hasford et al. JNTL Cancer Inst 1998; Vol 90: pp 850-858 <br />
-                        <strong>Escala EUTOS:</strong> J Hasford et al. Blood 2011; Vol 118: pp 686-692<br />
-                        <strong>Recomendaciones Leukemia.net:</strong> M Baccarani et al; Vol122: pp872-884 </p>
-               </div>
-             </div>   
-           
-            </div>
-            
-            <div data-role="footer" data-position="fixed">
-    		<div data-role="navbar">
-    			<ul>
-    				<li><a href="#S_H" ><div class="ui_sokal"></div> S-H</a></li>
-    				<li><a href="#eutos"><div class="ui_eutos"></div> Eutos</a></li>
-                    <li><a href="#resultados"><div class="ui_resultado"></div> Result</a></li>
-                    <li><a href="#tablas"><div class="ui_info"></div> Tables</a></li>
-    			</ul>
-    		</div><!-- /navbar -->
-    	</div><!-- /footer -->
-            <!--         pie de pagina                 
-            <div data-role="footer" data-position="fixed">
-                <a data-role="button" href="#">Principal</a>
-                <a data-role="button" href="#pagina2">Primero</a>
-                <a data-role="button" href="#pagina3">Segundo</a>
-                <a data-role="button" href="#pagina4">Tercero</a>
-            </div>-->
+    <div data-role="page" id="home"  data-theme="a" >
+        <!--         cabecera                 -->
+        <div data-role="header">
+            <h1>Bienvenido</h1>
         </div>
-     </div>
+        <!--         contenido                 -->
+        <div data-role="content">
+            <!-- data-inline="true" en todos los botones que se quiera es para colocar los botones horizaontales -->
+
+			
+                                       
+                   <div> 
+                    <div id="logo_image"> 
+                    <img src="img/logo2.png" width="35%" style="margin-top:10%"  alt=""/>
+                    <img src="img/logo_Text.svg" width="120%" style="margin-left:-10%"  alt=""/>
+                    </div>
+                  
+                    
+                    <div data-role="collapsible">
+                    <h4>Información</h4>
+                     <p style="text-align:justify">Esta aplicación realiza los cálculos de riesgo en 3 diferentes escalas, definiendo la posibilidad de logar los objetivos del tratamiento y contiene además algunos de los datos mas usados en la terapia de Leucemia Mieloide Crónica</p> </p>
+           </div>
+                   
+                    
+                    
+                    
+                    <div data-role="collapsible">
+                    <h4>Referencias</h4>
+                    <p><strong>Escala Sokal:</strong> JE Sokal et al. Blood 1984; Vol.63: pp789-799<br />
+                    <strong>Ecala Hasford:</strong> J Hasford et al. JNTL Cancer Inst 1998; Vol 90: pp 850-858 <br />
+                    <strong>Escala EUTOS:</strong> J Hasford et al. Blood 2011; Vol 118: pp 686-692<br />
+                    <strong>Recomendaciones Leukemia.net:</strong> M Baccarani et al; Vol122: pp872-884 </p>
+           </div>
+         </div>   
+       
+        </div>
+        
+        <div data-role="footer" data-position="fixed">
+		<div data-role="navbar">
+			<ul>
+				<li><a href="#S_H" ><div class="ui_sokal"></div> S-H</a></li>
+				<li><a href="#eutos"><div class="ui_eutos"></div> Eutos</a></li>
+                <li><a href="#resultados"><div class="ui_resultado"></div> Resultado</a></li>
+                <li><a href="#tablas"><div class="ui_info"></div> Tablas</a></li>
+			</ul>
+		</div><!-- /navbar -->
+	</div><!-- /footer -->
+        <!--         pie de pagina                 
+        <div data-role="footer" data-position="fixed">
+            <a data-role="button" href="#">Principal</a>
+            <a data-role="button" href="#pagina2">Primero</a>
+            <a data-role="button" href="#pagina3">Segundo</a>
+            <a data-role="button" href="#pagina4">Tercero</a>
+        </div>-->
+    </div>
     
     <div data-role="page" id="S_H" data-theme="a" >
         <!--         cabecera                 -->
@@ -432,7 +286,7 @@
             <!-- data-inline="true" en todos los botones que se quiera es para colocar los botones horizaontales -->
 		
         	<div data-role="collapsible" >
-                    <h4>Spreadsheet</h4>
+                    <h4>Hoja de Cálculo</h4>
                     <p style="color:#B40A0A">El cálculo de riesgo debe realizarse siempre en el paciente con diagnostico de novo, no aplica para pacientes previamente tratados.
                     </p>
                     </div>
@@ -463,12 +317,12 @@
                 <label for="textinput-1">Blood Myeloblasts:</label>
                 <input type="number" name="Mieloblasti" id="Mieloblasti" placeholder="% x 10 ( e.g 0.7% = 7 )" value="">
             </li>
-            <a data-role="button" data-theme="b" href="" onclick="cs();return false;">Calculate</a>
+            <a data-role="button" data-theme="b" href="" onclick="cs();return false;">Calcular</a>
             <li class="ui-field-contain">
                 <label for="textinput-1">Sokal RR:</label>
                
                     <textarea cols="40" rows="8" type="text" name="rissokal" id="rissokal" placeholder="Result Sokal" value="" readonly></textarea>
-                    <a class="pop2"  data-icon="arrow-d" style="text-align:center; display:block; margin-left:auto; margin-right:auto" data-role="button" data-theme="a"  href="#popupBasic" data-rel="popup">Information Sokal</a>
+                    <a class="pop2"  data-icon="arrow-d" style="text-align:center; display:block; margin-left:auto; margin-right:auto" data-role="button" data-theme="a"  href="#popupBasic" data-rel="popup">Información Sokal</a>
 
                 <div data-role="popup" id="popupBasic">
                     <p>
@@ -486,7 +340,7 @@
 <input type="text" name="riseuro" id="riseuro" placeholder="Result Hasford" value="" readonly>
 -->
                     <textarea type="text" cols="40" rows="8" name="riseuro" id="riseuro" placeholder="Result Hasford" readonly></textarea>
-                    <a class="pop2" data-icon="arrow-d"  style="text-align:center; display:block; margin-left:auto; margin-right:auto" data-role="button" data-theme="a" href="#popupBasic2" data-rel="popup">Information Hasford</a>
+                    <a class="pop2" data-icon="arrow-d"  style="text-align:center; display:block; margin-left:auto; margin-right:auto" data-role="button" data-theme="a" href="#popupBasic2" data-rel="popup">Información Hasford</a>
        
                 <div data-role="popup" id="popupBasic2">
                     <p>
@@ -500,12 +354,12 @@
                 
                 
             </li>
-            <a data-role="button" data-theme="b" href="" onclick="borrarDatos();return false;">Clear</a>
+            <a data-role="button" data-theme="b" href="" onclick="borrarDatos();return false;">Limpiar</a>
         </ul>
      </form>
      
      <div data-role="collapsible" >
-                    <h4>References</h4>
+                    <h4>Referencias</h4>
                     <p><strong>A Hochhaus et al.</strong> Leukemia 2009; Vol 23: pp 1054-61 <br/>
                       <strong>SG O´Brien et al.</strong> N Engl J Med 2003; Vol 348: pp 994-1004 <br/>
        <strong>M Baccarani et al.</strong> J Clin Oncol  2009: Vol 27: pp 6041-6051 </p>
@@ -520,8 +374,8 @@
             <ul>
 				<li><a href="#S_H" class="ui-btn-active" ><div class="ui_sokal"></div> S-H</a></li>
 				<li><a href="#eutos"><div class="ui_eutos"></div> Eutos</a></li>
-                <li><a href="#resultados"><div class="ui_resultado"></div>Result</a></li>
-                <li><a href="#tablas"><div class="ui_info"></div>Tables</a></li>
+                <li><a href="#resultados"><div class="ui_resultado"></div>Resultado</a></li>
+                <li><a href="#tablas"><div class="ui_info"></div>Tablas</a></li>
 			</ul>
          
            
@@ -540,7 +394,7 @@
             <!-- data-inline="true" en todos los botones que se quiera es para colocar los botones horizaontales -->
           
           <div data-role="collapsible" >
-                    <h4>Spreadsheet</h4>
+                    <h4>Hoja de Cálculo</h4>
                     <p style="color:#B40A0A">El cálculo de riesgo debe realizarse siempre en el paciente con diagnostico de novo, no aplica para pacientes previamente tratados.
                     </p>
                     </div>
@@ -556,14 +410,14 @@
                 <label for="textinput-1">Blood Basophils:</label>
                 <input type="number" name="Basofili2" id="Basofili2" placeholder="%" value="">
             </li>
-            <a data-role="button" data-theme="b" href="" onclick="cs2();return false;">Calculate</a>
+            <a data-role="button" data-theme="b" href="" onclick="cs2();return false;">Calcular</a>
             <li class="ui-field-contain">
                 <label for="textinput-1">EUTOS Risk group:</label>
                 <textarea id="teutos" cols="40" rows="8" name="textarea" id="textarea"></textarea>
                 <!--
 <input type="text" name="teutos" id="teutos" placeholder="Result EUTOS Risk" value="" readonly >
 -->
-                <a class="pop2" data-icon="arrow-d"  style="text-align:center; display:block; margin-left:auto; margin-right:auto" data-role="button" data-theme="a" href="#popupBasic3" data-rel="popup">Information Eutos</a>
+                <a class="pop2" data-icon="arrow-d"  style="text-align:center; display:block; margin-left:auto; margin-right:auto" data-role="button" data-theme="a" href="#popupBasic3" data-rel="popup">Información Eutos</a>
               
                 <div data-role="popup" id="popupBasic3">
                     <p>
@@ -582,13 +436,13 @@
                 <label for="textinput-1">EUTOS Score:</label>
                 <textarea type="text" name="riseutos" id="riseutos" placeholder="Result EUTOS Score" value="" readonly ></textarea>
             </li>
-            <a data-role="button" data-theme="b" href="" onclick="borrarDatos();return false;">Clear</a>
+            <a data-role="button" data-theme="b" href="" onclick="borrarDatos();return false;">Limpiar</a>
             
           </ul>  
          </form>
          
           <div data-role="collapsible" >
-                    <h4>References</h4>
+                    <h4>Referencias</h4>
                     <p><strong>Escala EUTOS: </strong>J Hasford et al. Blood 2011; Vol 118: pp 686-692 </p>
                     </div>
         </div>
@@ -599,8 +453,8 @@
            <ul>
 				<li><a href="#S_H"><div class="ui_sokal"></div> S-H</a></li>
 				<li><a href="#eutos"class="ui-btn-active" ><div class="ui_eutos"></div> Eutos</a></li>
-                <li><a href="#resultados"><div class="ui_resultado"></div>Result</a></li>
-                <li><a href="#tablas"><div class="ui_info"></div>Tables</a></li>
+                <li><a href="#resultados"><div class="ui_resultado"></div>Resultado</a></li>
+                <li><a href="#tablas"><div class="ui_info"></div>Tablas</a></li>
 			</ul>
 		</div>
        </div>
@@ -609,7 +463,7 @@
     <div data-role="page" id="resultados" data-theme="a" >
         <!--         cabecera                 -->
         <div data-role="header">
-            <h1>Results</h1>
+            <h1>Resultados</h1>
             <div class="inicio"><a href="#home" data-icon="home" ><img src="img/icons-svg/home-black.svg" width:"auto" height="40px" alt=""/></a></div>
         </div>
         <!--         contenido                 -->
@@ -639,12 +493,12 @@
                 <textarea type="text" name="riseutos3" id="riseutos3" placeholder="Result EUTOS Score" value="" readonly></textarea>
             </li>
             <li class="ui-field-contain">
-                <label for="textinput-1">Send to:</label>
+                <label for="textinput-1">Enviar a:</label>
                 <input type="text" name="correo" id="correo" placeholder="Ingrese el Email" value="">
             </li>
             <div id="resultadoGenerarDatos">
             </div>
-            <a data-role="button" data-theme="b" data-icon="mail" href="" onclick="generarDatos();return false;">Send</a>
+            <a data-role="button" data-theme="b" data-icon="mail" href="" onclick="generarDatos();return false;">Enviar</a>
           </ul> 
          </form>   
         </div>
@@ -654,8 +508,8 @@
 			  <ul>
 				<li><a href="#S_H"><div class="ui_sokal"></div> S-H</a></li>
 				<li><a href="#eutos"><div class="ui_eutos"></div> Eutos</a></li>
-                <li><a href="#resultados" class="ui-btn-active"><div class="ui_resultado"></div>Result</a></li>
-                <li><a href="#tablas"><div class="ui_info"></div>Tables</a></li>
+                <li><a href="#resultados" class="ui-btn-active"><div class="ui_resultado"></div>Resultado</a></li>
+                <li><a href="#tablas"><div class="ui_info"></div>Tablas</a></li>
 			</ul>
 		</div>
        </div>
@@ -666,14 +520,14 @@
    	<div data-role="page" id="tablas" data-theme="a" >
         <!--         cabecera                 -->
         <div data-role="header">
-            <h1>Tables</h1>
+            <h1>Tablas</h1>
             <div class="inicio"><a href="#home" data-icon="home" ><img src="img/icons-svg/home-black.svg" width:"auto" height="40px" alt=""/></a></div>
         </div>
         <!--         contenido                 -->
         <div data-role="content">
             <!-- data-inline="true" en todos los botones que se quiera es para colocar los botones horizaontales -->
             
-             <div data-role="collapsible" data-collapsed-icon="arrow-r" data-expanded-icon="arrow-d">
+             <div data-role="collapsible" data-collapsed-icon="arrow-r" data-expanded-icon="arrow-d".>
                     <h4>Fases de Leucemia Mieloide Crónica</h4>
                     <table width="100%%" border="0">
   <tr>
@@ -724,9 +578,9 @@ CCA/Ph+, clonal chromosome abnormalities in Ph+ cells.</p>
              </div>
              
            <!--Tabla2-->
-            <div data-role="collapsible" data-collapsed-icon="arrow-r" data-expanded-icon="arrow-d">
+            <div data-role="collapsible" data-collapsed-icon="arrow-r" data-expanded-icon="arrow-d".>
                     <h4> Objetivos de Respuesta en Primera Línea </h4>
-                    <table width="100%" border="0">
+                    <table width="100%%" border="0">
   <tr>
     <td width="23%" bgcolor="#C5C5C5">&nbsp;</td>
     <td width="18%" bgcolor="#C5C5C5">Optimal </td>
@@ -780,9 +634,9 @@ NA, not applicable; MMR, BCR-ABL1  &le;0.1% = MR<sup>3.0</sup> or better; CCA/Ph
             
             </div>
             
- <div data-role="collapsible" data-collapsed-icon="arrow-r" data-expanded-icon="arrow-d">
+ <div data-role="collapsible" data-collapsed-icon="arrow-r" data-expanded-icon="arrow-d".>
                     <h4> Objetivos de Respuesta en Segunda Línea</h4>           
-            <table width="100%" border="0">
+            <table width="100%%" border="0">
   <tr>
     <td width="25%" bgcolor="#C5C5C5">&nbsp;</td>
     <td width="18%" bgcolor="#C5C5C5">Optimal </td>
@@ -834,7 +688,7 @@ NA, not applicable; MMR, BCR-ABL1 &ge;0.1% = MR3.0 or better; CCA/Ph+, clonal ch
 <div data-role="collapsible" data-collapsed-icon="arrow-r" data-expanded-icon="arrow-d".>
                     <h4> Recomendaciones de terapia en fase crónica </h4>
                     
-                  <table width="100%" border="0">
+                  <table width="100%%" border="0">
   <tr>
     <td bgcolor="#C5C5C5"><strong>First line</strong></td>
   </tr>
@@ -955,12 +809,9 @@ TKIs have priority. In patients who progress to AP or BP during TKI therapy, the
         <h5 style="font-size:0.875em"><a href="#" onclick="window.open('http://www.ncbi.nlm.nih.gov/pubmed/19282833','_self','location=yes')"> http://www.ncbi.nlm.nih.gov</a></h5>
         
         <h3>SG O'Brien </h3>
-        <h5 style="font-size:0.875em"><a href="#" onclick="window.open('http://www.nejm.org/doi/full/10.1056/nejmoa022457','_system','localtion=yes')">http://www.nejm.org</a></h5>
+        <h5 style="font-size:0.875em"><a href="#" onclick="window.open('http://www.nejm.org/doi/full/10.1056/nejmoa022457','_self','localtion=yes')">http://www.nejm.org</a></h5>
         <h3>Baccarani</h3>
-        <h5 style="font-size:0.875em"><a href="#" onclick="window.open('http://jco.ascopubs.org/content/27/35/6041.short','_blank','location=yes')">http://jco.ascopubs.org</a></h5>
-        <h3>Prueba</h3>
-        <h5 style="font-size:0.875em"><a href="#" onclick="window.open('http://cdclaboratorio.com','_system','location=yes')">http://jco.ascopubs.org</a></h5>
-        <h5 style="font-size:0.875em"><a href="#" onclick="window.open('http://www.cdclaboratorio.com','_self','location=yes')">http://jco.ascopubs.org</a></h5>
+        <h5 style="font-size:0.875em"><a href="#" onclick="window.open('http://jco.ascopubs.org/content/27/35/6041.short','_self','location=yes')">http://jco.ascopubs.org</a></h5>
        
 </div>        
         
@@ -972,8 +823,8 @@ TKIs have priority. In patients who progress to AP or BP during TKI therapy, the
 			 <ul>
 				<li><a href="#S_H"><div class="ui_sokal"></div> S-H</a></li>
 				<li><a href="#eutos"><div class="ui_eutos"></div> Eutos</a></li>
-                <li><a href="#resultados"><div class="ui_resultado"></div>Result</a></li>
-                <li><a href="#tablas" class="ui-btn-active" ><div class="ui_info"></div>Tables</a></li>
+                <li><a href="#resultados"><div class="ui_resultado"></div>Resultado</a></li>
+                <li><a href="#tablas" class="ui-btn-active" ><div class="ui_info"></div>Tablas</a></li>
 			</ul>
 		</div>
        </div>
