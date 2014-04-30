@@ -2,7 +2,7 @@
 <widget id="com.phonegap.helloworld" version="1.0.0" xmlns="http://www.w3.org/ns/widgets" xmlns:gap="http://phonegap.com/ns/1.0">
     <name>LMC|CAL</name>
     <description>
-        Esta aplicación realiza los cálculos de riesgo en 3 diferentes escalas, definiendo la posibilidad de logar los objetivos del tratamiento y contiene además algunos de los datos mas usados en la terapia de Leucemia Mieloide Crónica
+        HEsta aplicación realiza los cálculos de riesgo en 3 diferentes escalas, definiendo la posibilidad de logar los objetivos del tratamiento y contiene además algunos de los datos mas usados en la terapia de Leucemia Mieloide Crónica
     </description>
     <author email="gatolocostudios@gmail.com" href="http://gatolocostudios.com">
         Equipo Gatoloco
@@ -48,7 +48,6 @@
     <gap:splash gap:platform="ios" height="768" src="res/screen/ios/screen-ipad-landscape.png" width="1024" />
     <gap:splash gap:platform="winphone" src="res/screen/windows-phone/screen-portrait.jpg" />
     <gap:plugin name="org.apache.cordova.inappbrowser" />
-    <plugin name="InAppBrowser" value="CDVInAppBrowser" />
     <access origin="http://127.0.0.1*" />
     <plugin name="File" value="CDVFile" />
     <plugin name="FileTransfer" value="CDVFileTransfer" />
@@ -57,9 +56,6 @@
     <access origin="http://gatolocostudios.com*" />
     <access origin="http://gatolocostudios.com/MobileCDC/*" />
     <access origin="http://cdc.gatolocostudios.com/VersionMobile/*" />
-    <access origin="http://cdc.gatolocostudios.com/CodigosValidos/Librerias/*" />
-    <access origin="http://cdc.gatolocostudios.com/CodigosValidos/Librerias/funciones.php*" />
-    <access origin="http://cdc.gatolocostudios.com/CodigosValidos/*" />
     <access origin="http://cdc.gatolocostudios.com/*" />
     <access origin="http://cdc.gatolocostudios.com/Calculadora/*" />
     <access origin="http://www.ncbi.nlm.nih.gov/pubmed/6584184/*" />
@@ -69,11 +65,4 @@
     <access origin="http://www.ncbi.nlm.nih.gov/pubmed/19282833/*" />
     <access origin="http://www.nejm.org/doi/full/10.1056/nejmoa022457/*" />
     <access origin="http://jco.ascopubs.org/content/27/35/6041.short/*" />
-    <access origin="http://cdclaboratorio.com/Librerias*" />
-    <access origin="http://cdclaboratorio.com*" />
-    
-    
-    
-    
-    
 </widget>
